@@ -51,7 +51,7 @@
 
         href="http://material-ui.com/"
 
-    >material-ui (v0.17.1)</a>
+    >material-ui (v0.17.4)</a>
 </h1>
 <h4>React Components that Implement Google's Material Design.</h4>
 <div class="apidocSectionDiv"><a
@@ -3262,6 +3262,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.material-ui.dateUtils.getYear">
+            function <span class="apidocSignatureSpan">material-ui.dateUtils.</span>getYear
+            <span class="apidocSignatureSpan">(d)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.material-ui.dateUtils.isAfterDate">
             function <span class="apidocSignatureSpan">material-ui.dateUtils.</span>isAfterDate
             <span class="apidocSignatureSpan">(d1, d2)</span>
@@ -3316,10 +3325,25 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.material-ui.dateUtils.setYear">
+            function <span class="apidocSignatureSpan">material-ui.dateUtils.</span>setYear
+            <span class="apidocSignatureSpan">(d, year)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.material-ui.dateUtils.yearDiff">
             function <span class="apidocSignatureSpan">material-ui.dateUtils.</span>yearDiff
             <span class="apidocSignatureSpan">(d1, d2)</span>
             </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">material-ui.dateUtils.</span>defaultUtils</span>
 
         </li>
 
@@ -4770,12 +4794,10 @@ default)(Chip)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
     open: false
   }, _this.handleItemTouchTap = function (event, child) {
     if (_this.props.touchTapCloseDelay !== 0 &#x26;&#x26; !child.props.hasOwnProperty(&#x27;menuItems&#x27;)) {
-      (function () {
-        var isKeyboard = _events2.default.isKeyboard(event);
-        _this.timerCloseId = setTimeout(function () {
-          _this.close(isKeyboard ? &#x27;enter&#x27; : &#x27;itemTap&#x27;, isKeyboard);
-        }, _this.props.touchTapCloseDelay);
-      })();
+      var isKeyboard = _events2.default.isKeyboard(event);
+      _this.timerCloseId = setTimeout(function () {
+        _this.close(isKeyboard ? &#x27;enter&#x27; : &#x27;itemTap&#x27;, isKeyboard);
+      }, _this.props.touchTapCloseDelay);
     }
 
     _this.props.onItemTouchTap(event, child);
@@ -6189,7 +6211,9 @@ default)(Tabs)).call.apply(_ref, [this].concat(args))), _this), _this.state = { 
       _this.props.onBlur(event);
     }
   }, _this.handleInputChange = function (event) {
-    _this.setState({ hasValue: isValid(event.target.value) });
+    if (!_this.props.hasOwnProperty(&#x27;value&#x27;)) {
+      _this.setState({ hasValue: isValid(event.target.value) });
+    }
     if (_this.props.onChange) {
       _this.props.onChange(event, event.target.value);
     }
@@ -6485,10 +6509,10 @@ apply(this, arguments));
     }]);
     return _class;
   }(_react.Component), _class.propTypes = {
-    children: _react.PropTypes.node,
-    onChange: _react.PropTypes.func,
-    selectedItemStyle: _react.PropTypes.object,
-    value: _react.Prop ...</pre></li>
+    children: _propTypes2.default.node,
+    onChange: _propTypes2.default.func,
+    selectedItemStyle: _propTypes2.default.object,
+    value: _p ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -6664,23 +6688,7 @@ apply(this, arguments));
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -6783,23 +6791,7 @@ if (!docked) {
   return (0, _possibleConstructorReturn3.default)(this, (AppCanvas.__proto__ || (0, _getPrototypeOf2.default)(AppCanvas)).apply(
 this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -7883,23 +7875,7 @@ _this.timerTouchTapCloseId = setTimeout(function () {
 .default)(AutoLockScrolling)).call.apply(_ref, [this].concat(args))), _this), _this.locked = false, _temp), (0, _possibleConstructorReturn3
 .default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -7921,23 +7897,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (Avatar.__proto__ || (0, _getPrototypeOf2.default)(Avatar)).apply(this,
 arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -7959,23 +7919,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (Badge.__proto__ || (0, _getPrototypeOf2.default)(Badge)).apply(this, arguments
 ));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -7997,23 +7941,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (BeforeAfterWrapper.__proto__ || (0, _getPrototypeOf2.default)(BeforeAfterWrapper
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8052,23 +7980,7 @@ return {
     preparedChildren
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8110,23 +8022,7 @@ return {
     )
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8167,12 +8063,10 @@ return {
   }, _this.handleMonthChange = function (months) {
     _this.setState({
       transitionDirection: months &#x3e;= 0 ? &#x27;left&#x27; : &#x27;right&#x27;,
-      displayDate: (0, _dateUtils.addMonths)(_this.state.displayDate, months)
+      displayDate: _this.props.utils.addMonths(_this.state.displayDate, months)
     });
   }, _this.handleTouchTapYear = function (event, year) {
-    var date = (0, _dateUtils.cloneDate)(_this.state.selectedDate);
-    date.setFullYear(year);
-    _this.setSelectedDate(date, event);
+    _this.setSelectedDate(_this.props.utils.setYear(_this.state.selectedDate, year), event);
     _this.handleTouchTapDateDisplayMonthDay();
   }, _this.handleTouchTapDateDisplayMonthDay = function () {
     _this.setState({
@@ -8228,23 +8122,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8266,23 +8144,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (CalendarActionButton.__proto__ || (0, _getPrototypeOf2.default)(CalendarActionButton
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8317,23 +8179,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8374,23 +8220,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8425,23 +8255,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8484,23 +8298,7 @@ default)(Card)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8522,23 +8320,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (CardActions.__proto__ || (0, _getPrototypeOf2.default)(CardActions)).apply
 (this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8560,23 +8342,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (CardExpandable.__proto__ || (0, _getPrototypeOf2.default)(CardExpandable
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8598,23 +8364,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (CardHeader.__proto__ || (0, _getPrototypeOf2.default)(CardHeader)).apply
 (this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8636,23 +8386,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (CardMedia.__proto__ || (0, _getPrototypeOf2.default)(CardMedia)).apply(
 this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8674,23 +8408,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (CardText.__proto__ || (0, _getPrototypeOf2.default)(CardText)).apply(this
 , arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8712,23 +8430,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (CardTitle.__proto__ || (0, _getPrototypeOf2.default)(CardTitle)).apply(
 this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8769,23 +8471,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8886,23 +8572,7 @@ default)(Chip)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
     _this.props.onTouchStart(event);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8924,23 +8594,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (CircleRipple.__proto__ || (0, _getPrototypeOf2.default)(CircleRipple)).
 apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -8962,23 +8616,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (CircularProgress.__proto__ || (0, _getPrototypeOf2.default)(CircularProgress
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9009,23 +8647,7 @@ return {
     children
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9069,23 +8691,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9183,23 +8789,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9243,23 +8833,7 @@ return {
     _this.setClock(event.changedTouches[0], true);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9302,23 +8876,7 @@ return {
     _this.setClock(event.changedTouches[0], event.type === &#x27;touchend&#x27;);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9340,23 +8898,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (ClockNumber.__proto__ || (0, _getPrototypeOf2.default)(ClockNumber)).apply
 (this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9389,23 +8931,7 @@ return {
     inner: false
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9453,23 +8979,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9537,23 +9047,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9624,23 +9118,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9689,23 +9167,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9738,23 +9200,7 @@ return {
     return _react2.default.createElement(DialogInline, _this3.props);
   }, _temp3), (0, _possibleConstructorReturn3.default)(_this3, _ret3);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9794,23 +9240,7 @@ return {
   return _react2.default.createElement(&#x27;hr&#x27;, (0, _extends3.default)({}, other, { style: prepareStyles((0, _simpleAssign2.default
 )(styles.root, style)) }));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -9934,23 +9364,7 @@ return {
     document.body.removeEventListener(&#x27;touchcancel&#x27;, _this.onBodyTouchEnd);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10044,23 +9458,7 @@ return {
     });
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10141,23 +9539,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10254,23 +9636,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10315,23 +9681,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10353,23 +9703,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (ExpandTransition.__proto__ || (0, _getPrototypeOf2.default)(ExpandTransition
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10391,23 +9725,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (ExpandTransitionChild.__proto__ || (0, _getPrototypeOf2.default)(ExpandTransitionChild
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10455,23 +9773,7 @@ return {
     _this.props.onTouchStart(event);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10493,23 +9795,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (FlatButtonLabel.__proto__ || (0, _getPrototypeOf2.default)(FlatButtonLabel
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10594,23 +9880,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10652,23 +9922,7 @@ return {
     _this.timeout = setTimeout(_this.pulsate, pulsateDuration);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10717,23 +9971,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10755,23 +9993,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (GridList.__proto__ || (0, _getPrototypeOf2.default)(GridList)).apply(this
 , arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10793,23 +10015,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (GridTile.__proto__ || (0, _getPrototypeOf2.default)(GridTile)).apply(this
 , arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10907,23 +10113,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -10957,12 +10147,10 @@ return {
     open: false
   }, _this.handleItemTouchTap = function (event, child) {
     if (_this.props.touchTapCloseDelay !== 0 &#x26;&#x26; !child.props.hasOwnProperty(&#x27;menuItems&#x27;)) {
-      (function () {
-        var isKeyboard = _events2.default.isKeyboard(event);
-        _this.timerCloseId = setTimeout(function () {
-          _this.close(isKeyboard ? &#x27;enter&#x27; : &#x27;itemTap&#x27;, isKeyboard);
-        }, _this.props.touchTapCloseDelay);
-      })();
+      var isKeyboard = _events2.default.isKeyboard(event);
+      _this.timerCloseId = setTimeout(function () {
+        _this.close(isKeyboard ? &#x27;enter&#x27; : &#x27;itemTap&#x27;, isKeyboard);
+      }, _this.props.touchTapCloseDelay);
     }
 
     _this.props.onItemTouchTap(event, child);
@@ -10972,23 +10160,7 @@ return {
     _this.close(&#x27;escape&#x27;, event);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11010,23 +10182,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (InkBar.__proto__ || (0, _getPrototypeOf2.default)(InkBar)).apply(this,
 arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11048,23 +10204,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (LinearProgress.__proto__ || (0, _getPrototypeOf2.default)(LinearProgress
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11086,23 +10226,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (List.__proto__ || (0, _getPrototypeOf2.default)(List)).apply(this, arguments
 ));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11200,23 +10324,7 @@ return {
     _this.props.onTouchEnd(event);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11257,23 +10365,7 @@ props, context));
   _this.hotKeyHolder = new _menuUtils.HotKeyHolder();
   return _this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11334,23 +10426,7 @@ return {
     });
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11372,23 +10448,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (MuiThemeProvider.__proto__ || (0, _getPrototypeOf2.default)(MuiThemeProvider
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11426,23 +10486,7 @@ return {
     })
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11464,23 +10508,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (Overlay.__proto__ || (0, _getPrototypeOf2.default)(Overlay)).apply(this
 , arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11502,23 +10530,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (Paper.__proto__ || (0, _getPrototypeOf2.default)(Paper)).apply(this, arguments
 ));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11649,23 +10661,7 @@ this, props, context));
   };
   return _this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11698,23 +10694,7 @@ return {
     open: false
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11747,23 +10727,7 @@ return {
     open: false
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11798,23 +10762,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11855,23 +10803,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -11969,23 +10901,7 @@ return {
     });
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12007,23 +10923,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (RefreshIndicator.__proto__ || (0, _getPrototypeOf2.default)(RefreshIndicator
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12072,23 +10972,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12110,23 +10994,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (ScaleIn.__proto__ || (0, _getPrototypeOf2.default)(ScaleIn)).apply(this
 , arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12148,23 +11016,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (ScaleInChild.__proto__ || (0, _getPrototypeOf2.default)(ScaleInChild)).
 apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12186,23 +11038,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (SelectField.__proto__ || (0, _getPrototypeOf2.default)(SelectField)).apply
 (this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12235,23 +11071,7 @@ return {
     return _this.props.direction;
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12273,23 +11093,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (SlideInChild.__proto__ || (0, _getPrototypeOf2.default)(SlideInChild)).
 apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12447,23 +11251,7 @@ return {
     document.addEventListener(&#x27;touchup&#x27;, _this.handleTouchEnd);
     document.addEventListener(&#x27;touchend&#x27;, _this.handleTouchEnd);
     document.addEventListener(&#x27;touchcancel&#x27;, _this.handleTo ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12505,23 +11293,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12605,23 +11377,7 @@ return {
     }, resizeInterval);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12665,23 +11421,7 @@ return {
 , icon: icon, last: last }, child.props));
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12741,23 +11481,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12829,23 +11553,7 @@ return {
 
   return _possibleConstructorReturn(this, _Component.apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12867,23 +11575,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (StepContent.__proto__ || (0, _getPrototypeOf2.default)(StepContent)).apply
 (this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12926,23 +11618,7 @@ return {
     children
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -12964,23 +11640,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (Stepper.__proto__ || (0, _getPrototypeOf2.default)(Stepper)).apply(this
 , arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13025,23 +11685,7 @@ return {
     children
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13080,23 +11724,7 @@ return {
     _this.props.onMouseEnter(event);
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13131,23 +11759,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13181,23 +11793,7 @@ return {
     children
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13253,23 +11849,7 @@ return {
     _this.setState({ allRowsSelected: !_this.state.allRowsSelected });
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13342,23 +11922,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13380,23 +11944,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (TableFooter.__proto__ || (0, _getPrototypeOf2.default)(TableFooter)).apply
 (this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13431,23 +11979,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13492,23 +12024,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13559,23 +12075,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13626,23 +12126,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13687,23 +12171,7 @@ default)(Tabs)).call.apply(_ref, [this].concat(args))), _this), _this.state = { 
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13742,7 +12210,9 @@ return {
       _this.props.onBlur(event);
     }
   }, _this.handleInputChange = function (event) {
-    _this.setState({ hasValue: isValid(event.target.value) });
+    if (!_this.props.hasOwnProperty(&#x27;value&#x27;)) {
+      _this.setState({ hasValue: isValid(event.target.value) });
+    }
     if (_this.props.onChange) {
       _this.props.onChange(event, event.target.value);
     }
@@ -13762,23 +12232,7 @@ return {
     _reactDom2.default.findDOMNode(_this).style.height = newHeight + &#x27;px&#x27;;
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13809,23 +12263,7 @@ return {
     text
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13863,23 +12301,7 @@ return {
     children
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -13957,23 +12379,7 @@ return {
     _react2.default.createElement(&#x27;hr&#x27;, { style: prepareStyles(focusedUnderline) })
   );
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14006,23 +12412,7 @@ return {
     transitionDirection: &#x27;up&#x27;
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14076,23 +12466,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14142,23 +12516,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14199,23 +12557,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14237,23 +12579,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (Toolbar.__proto__ || (0, _getPrototypeOf2.default)(Toolbar)).apply(this
 , arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14275,23 +12601,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (ToolbarGroup.__proto__ || (0, _getPrototypeOf2.default)(ToolbarGroup)).
 apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14313,23 +12623,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (ToolbarSeparator.__proto__ || (0, _getPrototypeOf2.default)(ToolbarSeparator
 )).apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14351,23 +12645,7 @@ return {
   return (0, _possibleConstructorReturn3.default)(this, (ToolbarTitle.__proto__ || (0, _getPrototypeOf2.default)(ToolbarTitle)).
 apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14400,23 +12678,7 @@ return {
     offsetWidth: null
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14513,23 +12775,7 @@ return {
   };
   return _this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14570,23 +12816,7 @@ return {
     }
   }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14618,6 +12848,8 @@ return {
     hasWarnedAboutUserAgent = true;
   }
 
+  var prefixAll = (0, _createPrefixer2.default)(_autoprefixerStatic2.default);
+
   if (userAgent === false) {
     // Disabled autoprefixer
     return null;
@@ -14625,7 +12857,7 @@ return {
     // Prefix for all user agent
     return function (style) {
       var isFlex = [&#x27;flex&#x27;, &#x27;inline-flex&#x27;].indexOf(style.display) !== -1;
-      var stylePrefixed = _inlineStylePrefixer2.default.prefixAll(style);
+      var stylePrefixed = prefixAll(style);
 
       if (isFlex) {
         var display = stylePrefixed.display;
@@ -14641,38 +12873,17 @@ return {
       return stylePrefixed;
     };
   } else {
-    var _ret = function () {
-      var prefixer = new _inlineStylePrefixer2.default({
-        userAgent: userAgent
-      });
+    var Prefixer = (0, _createPrefixer4.default)(_autoprefixerDynamic2.default, prefixAll);
+    var prefixer = new Prefixer({
+      userAgent: userAgent
+    });
 
-      return {
-        v: function v(style) {
-          return prefixer.prefix(style);
-        }
-      };
-    }();
-
-    if ((typeof _ret === &#x27;undefined&#x27; ? &#x27;undefined&#x27; : (0, _typeof3.default)(_ret)) === &#x22;object&#x22;) return _ret.v;
+    return function (style) {
+      return prefixer.prefix(style);
+    };
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -14701,23 +12912,7 @@ return {
     };
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -15041,7 +13236,23 @@ return {
   newDate.setDate(d.getDate() + days);
   return newDate;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+
+    return this.refs.calendar.isSelectedDateDisabled();
+  }
+}, {
+  key: &#x27;addSelectedDays&#x27;,
+  value: function addSelectedDays(days) {
+    this.setSelectedDate(this.props.utils.<span class="apidocCodeKeywordSpan">addDays</span>(this.state.selectedDate, days));
+  }
+}, {
+  key: &#x27;addSelectedMonths&#x27;,
+  value: function addSelectedMonths(months) {
+    this.setSelectedDate(this.props.utils.addMonths(this.state.selectedDate, months));
+  }
+}, {
+...</pre></li>
     </ul>
 
 
@@ -15058,7 +13269,23 @@ return {
   newDate.setMonth(d.getMonth() + months);
   return newDate;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  transitionEnter: true
+}, _this.handleTouchTapDay = function (event, date) {
+  _this.setSelectedDate(date);
+  if (_this.props.onTouchTapDay) _this.props.onTouchTapDay(event, date);
+}, _this.handleMonthChange = function (months) {
+  _this.setState({
+    transitionDirection: months &#x3e;= 0 ? &#x27;left&#x27; : &#x27;right&#x27;,
+    displayDate: _this.props.utils.<span class="apidocCodeKeywordSpan">addMonths</span>(_this.state.displayDate, months)
+  });
+}, _this.handleTouchTapYear = function (event, year) {
+  _this.setSelectedDate(_this.props.utils.setYear(_this.state.selectedDate, year), event);
+  _this.handleTouchTapDateDisplayMonthDay();
+}, _this.handleTouchTapDateDisplayMonthDay = function () {
+  _this.setState({
+    displayMonthDay: true
+...</pre></li>
     </ul>
 
 
@@ -15075,7 +13302,23 @@ return {
   newDate.setFullYear(d.getFullYear() + years);
   return newDate;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        selectedDate: date
+      });
+    }
+  }
+}, {
+  key: &#x27;getMinDate&#x27;,
+  value: function getMinDate() {
+    return this.props.minDate || this.props.utils.<span class="apidocCodeKeywordSpan">addYears</span>(new Date(), -100);
+  }
+}, {
+  key: &#x27;getMaxDate&#x27;,
+  value: function getMaxDate() {
+    return this.props.maxDate || this.props.utils.addYears(new Date(), 100);
+  }
+}, {
+...</pre></li>
     </ul>
 
 
@@ -15192,7 +13435,23 @@ not supported by the built-in DateTimeFormat.\n  Use the `DateTimeFormat` prop t
     <li>description and source-code<pre class="apidocCodePre">function getFirstDayOfMonth(d) {
   return new Date(d.getFullYear(), d.getMonth(), 1);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+}
+
+(0, _createClass3.default)(Calendar, [{
+  key: &#x27;componentWillMount&#x27;,
+  value: function componentWillMount() {
+    this.setState({
+      displayDate: this.props.utils.<span class="apidocCodeKeywordSpan">getFirstDayOfMonth</span>(this.props.initialDate),
+      selectedDate: this.props.initialDate
+    });
+  }
+}, {
+  key: &#x27;componentWillReceiveProps&#x27;,
+  value: function componentWillReceiveProps(nextProps) {
+    if (nextProps.initialDate !== this.props.initialDate) {
+...</pre></li>
     </ul>
 
 
@@ -15251,7 +13510,55 @@ not supported by the built-in DateTimeFormat.\n  Use the `DateTimeFormat` prop t
 
   return weekArray;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return disabled;
+    }
+  }, {
+    key: &#x27;getWeekElements&#x27;,
+    value: function getWeekElements() {
+var _this2 = this;
+
+var weekArray = this.props.utils.<span class="apidocCodeKeywordSpan">getWeekArray</span>(this.props.displayDate, this.props.firstDayOfWeek
+);
+
+return weekArray.map(function (week, i) {
+  return _react2.default.createElement(
+    &#x27;div&#x27;,
+    { key: i, style: styles.week },
+    _this2.getDayElements(week, i)
+  );
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.material-ui.dateUtils.getYear" id="apidoc.element.material-ui.dateUtils.getYear">
+        function <span class="apidocSignatureSpan">material-ui.dateUtils.</span>getYear
+        <span class="apidocSignatureSpan">(d)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getYear(d) {
+  return d.getFullYear();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    locale = _props.locale,
+    minDate = _props.minDate,
+    maxDate = _props.maxDate,
+    selectedDate = _props.selectedDate,
+    utils = _props.utils;
+
+
+var minYear = utils.<span class="apidocCodeKeywordSpan">getYear</span>(minDate);
+var maxYear = utils.getYear(maxDate);
+var years = [];
+
+for (var year = minYear; year &#x3c;= maxYear; year++) {
+  var selected = utils.getYear(selectedDate) === year;
+  var selectedProps = {};
+  if (selected) {
+...</pre></li>
     </ul>
 
 
@@ -15354,7 +13661,58 @@ not supported by the built-in DateTimeFormat.\n  Use the `DateTimeFormat` prop t
   m -= d2.getMonth();
   return m;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      });
+    }
+  }
+}, {
+  key: &#x27;getToolbarInteractions&#x27;,
+  value: function getToolbarInteractions() {
+    return {
+      prevMonth: this.props.utils.<span class="apidocCodeKeywordSpan">monthDiff</span>(this.state.displayDate, this.getMinDate()) &#
+x3e; 0,
+      nextMonth: this.props.utils.monthDiff(this.state.displayDate, this.getMaxDate()) &#x3c; 0
+    };
+  }
+}, {
+  key: &#x27;yearSelector&#x27;,
+  value: function yearSelector() {
+    if (!this.props.disableYearSelection) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.material-ui.dateUtils.setYear" id="apidoc.element.material-ui.dateUtils.setYear">
+        function <span class="apidocSignatureSpan">material-ui.dateUtils.</span>setYear
+        <span class="apidocSignatureSpan">(d, year)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setYear(d, year) {
+  var newDate = cloneDate(d);
+  newDate.setFullYear(year);
+  return newDate;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (_this.props.onTouchTapDay) _this.props.onTouchTapDay(event, date);
+}, _this.handleMonthChange = function (months) {
+  _this.setState({
+    transitionDirection: months &#x3e;= 0 ? &#x27;left&#x27; : &#x27;right&#x27;,
+    displayDate: _this.props.utils.addMonths(_this.state.displayDate, months)
+  });
+}, _this.handleTouchTapYear = function (event, year) {
+  _this.setSelectedDate(_this.props.utils.<span class="apidocCodeKeywordSpan">setYear</span>(_this.state.selectedDate, year), event
+);
+  _this.handleTouchTapDateDisplayMonthDay();
+}, _this.handleTouchTapDateDisplayMonthDay = function () {
+  _this.setState({
+    displayMonthDay: true
+  });
+}, _this.handleTouchTapDateDisplayYear = function () {
+  _this.setState({
+...</pre></li>
     </ul>
 
 
@@ -15371,6 +13729,8 @@ not supported by the built-in DateTimeFormat.\n  Use the `DateTimeFormat` prop t
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
+
+
 
 
 </div>
@@ -15391,23 +13751,7 @@ not supported by the built-in DateTimeFormat.\n  Use the `DateTimeFormat` prop t
  + &#x27;\&#x27; has been deprecated, use \&#x27;&#x27; + supportedPath + &#x27;\&#x27; instead.&#x27;) : void 0;
   return object;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -15445,23 +13789,7 @@ return {
     return validator.apply(undefined, [props, propName, componentName, location, propFullName].concat(args));
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -15595,23 +13923,7 @@ return {
       miniSize: 40,
       color: palette.primary1Color,
       iconColor: palette.al ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -15783,10 +14095,10 @@ return {
     }]);
     return _class;
   }(_react.Component), _class.propTypes = {
-    children: _react.PropTypes.node,
-    onChange: _react.PropTypes.func,
-    selectedItemStyle: _react.PropTypes.object,
-    value: _react.Prop ...</pre></li>
+    children: _propTypes2.default.node,
+    onChange: _propTypes2.default.func,
+    selectedItemStyle: _propTypes2.default.object,
+    value: _p ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -15910,27 +14222,11 @@ return {
     }]);
     return _class;
   }(_react.Component), _class.propTypes = {
-    children: _react.PropTypes.node,
-    onChange: _react.PropTypes.func,
-    selectedItemStyle: _react.PropTypes.object,
-    value: _react.Prop ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    children: _propTypes2.default.node,
+    onChange: _propTypes2.default.func,
+    selectedItemStyle: _propTypes2.default.object,
+    value: _p ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -16001,29 +14297,13 @@ return {
     };
 
     MuiComponent.contextTypes = {
-      muiTheme: _react.PropTypes.object.isRequired
+      muiTheme: _propTypes2.default.object.isRequired
     };
 
     return MuiComponent;
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -16045,23 +14325,7 @@ return {
 
   return _possibleConstructorReturn(this, _Component.apply(this, arguments));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -16154,23 +14418,7 @@ return {
     };
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -16441,23 +14689,7 @@ return {
     }(_react.Component);
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  }
-}
-
-return stylePrefixed;
-    };
-  } else {
-    var _ret = function () {
-var prefixer = new _inlineStylePrefixer2.<span class="apidocCodeKeywordSpan">default</span>({
-  userAgent: userAgent
-});
-
-return {
-  v: function v(style) {
-    return prefixer.prefix(style);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
