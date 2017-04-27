@@ -1,6 +1,6 @@
 # npmdoc-material-ui
 
-#### api documentation for  [material-ui (v0.17.4)](http://material-ui.com/)  [![npm package](https://img.shields.io/npm/v/npmdoc-material-ui.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-material-ui) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-material-ui.svg)](https://travis-ci.org/npmdoc/node-npmdoc-material-ui)
+#### basic api documentation for  [material-ui (v0.17.4)](http://material-ui.com/)  [![npm package](https://img.shields.io/npm/v/npmdoc-material-ui.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-material-ui) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-material-ui.svg)](https://travis-ci.org/npmdoc/node-npmdoc-material-ui)
 
 #### React Components that Implement Google's Material Design.
 
@@ -88,7 +88,8 @@
         "url": "git+https://github.com/callemall/material-ui.git"
     },
     "scripts": {},
-    "version": "0.17.4"
+    "version": "0.17.4",
+    "bin": {}
 }
 ```
 
